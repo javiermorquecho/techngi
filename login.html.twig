@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+<!-- Styles -->
+{% block stylesheets %} 
+   <style> 
+      .table { border-collapse: collapse; } 
+      .table th, td { 
+         border-bottom: 1px solid #ddd; 
+         width: 250px; 
+         text-align: left; 
+         align: left; 
+      } 
+   </style> 
+{% endblock %} 
+{% block body %} 
+    <div id="container">
+        <h2>{{ isAdminLogin ? 'ADMIN' : '' }} {{ loginHeaderText }}</h2>
+            {{ form_start(form) }}
+                <ul class="login">
+                    <li>
+                        <ul class="login-labels">
+                            <li><label for="username">Username: </label></li>
+                            <li><label for="password">Password: </label></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="login-ctrls">
+                            <li><input type="text" id="username" name="username" /></li>
+                            <li><input type="password" id="password" name="password" /></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="login-ctrls">
+                            <li>{{ submitButtonHTML }}</li>
+                            <li><input type="password" id="password" name="password" /></li>
+                        </ul>
+                    </li>
+                </ul>
+            {{ form_end(form) }}
+                <ul class="login-stats">
+                    <li>
+                        <ul class="stats-labels">
+                            <li>Site logins:</li>
+                            <!--li>Is used by:</li-->
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="stats-values">
+                            <li>{{ totalSiteLogins }}</li>
+                            <!--li>{{ isAdminLogin ? 'ADMIN' : '' }}</li-->
+                        </ul>
+                    </li>
+                </ul>
+    </div>
+    <div class="form-control">
+        <i class="fa fa-calendar"></i> {{ form_label(form.dueDate) }}
+        {{ form_widget(form.dueDate) }}
+
+        <small>{{ form_help(form.dueDate) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.dueDate) }}
+        </div>
+    </div>
+{% endblock %}
