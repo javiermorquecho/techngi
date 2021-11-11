@@ -41,25 +41,13 @@
                     <li>
                         <ul class="stats-labels">
                             <li>Site logins:</li>
-                            <!--li>Is used by:</li-->
                         </ul>
                     </li>
                     <li>
                         <ul class="stats-values">
                             <li>{{ number_format( totalSiteLogins ) }}</li>
-                            <!--li>{{ isAdminLogin ? 'ADMIN' : '' }}</li-->
                         </ul>
                     </li>
                 </ul>
-    </div>
-    <div class="form-control">
-        <i class="fa fa-calendar"></i> {{ form_label(form.dueDate) }}
-        {{ form_widget(form.dueDate) }}
-
-        <small>{{ form_help(form.dueDate) }}</small>
-
-        <div class="form-error">
-            {{ form_errors(form.dueDate) }}
-        </div>
     </div>
 {% endblock %}
